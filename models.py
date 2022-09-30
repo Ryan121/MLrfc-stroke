@@ -11,7 +11,8 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 from imblearn.over_sampling import RandomOverSampler
 from sklearn.metrics import confusion_matrix
 
-dataset_path = "C:/Users/rsers/OneDrive/Documents/Github/ML RandomForest/stroke-data-main.csv"
+# dataset_path = "C:/Users/rsers/OneDrive/Documents/Github/ML RandomForest/stroke-data-main.csv"
+dataset_path = "stroke-data-main.csv"
 dataset = pd.read_csv(dataset_path)
 print('Dataset shape:', dataset.shape)
 dataset.head(5)
