@@ -8,6 +8,7 @@ on:
 
 jobs:
   Pipeline:
+    container: docker://dvcorg/cml-py3:3.8
     runs-on: ubuntu-latest
 
     steps:
