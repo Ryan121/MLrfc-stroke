@@ -1,16 +1,11 @@
 name: MLOps Pipeline
 
-on:
-  push:
-    branches:
-      - main
-
+on: [push]
 
 jobs:
-  Pipeline:
-    container: docker://dvcorg/cml-py3:3.8
+  run:
     runs-on: ubuntu-latest
-
+    container: docker://dvcorg/cml-py3:3.8
     steps:
 
       # Step 1
