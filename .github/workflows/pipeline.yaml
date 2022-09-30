@@ -16,5 +16,5 @@ jobs:
           python models.py
           
           echo "## Model metrics" > report.md
-          cat ouput.txt >> report.md
+          cat output.txt >> report.md
 
