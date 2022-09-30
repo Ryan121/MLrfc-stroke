@@ -165,6 +165,10 @@ classification_eval(y_test, y_pred)
 # Plot confusion matrix
 cm = confusion_matrix(y_test, y_pred)
 
+# Write model metrics to file
+with open('output.txt', 'w') as output:
+    output.write(classification_eval(y_test, y_pred))
+
 ##########################################
 ##### PLOT FEATURE IMPORTANCE ############
 ##########################################
@@ -190,7 +194,3 @@ sns.heatmap(df_cm, annot=True, annot_kws={"size": 16}) # font size
 # plt.show()
 plt.tight_layout()
 plt.savefig("confmatrix.png",dpi=120)
-
-# Write model metrics to file
-with open('output.txt', 'w') as output:
-    output.write(classification_eval(y_test, y_pred))
