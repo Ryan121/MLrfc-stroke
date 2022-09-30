@@ -15,6 +15,12 @@ jobs:
       # Step 1
       - uses: actions/checkout@v2
 
+      # Step 2
+      - name: Set up Python:latest
+        uses: actions/setup-python@v2
+        with: 
+          python-version: latest
+
       # Step 3
       - name: Install dependencies
         run: |
