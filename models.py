@@ -134,6 +134,11 @@ def classification_eval(y_test, y_pred):
     print(f'recall    = {np.round(recall_score(y_test, y_pred), 3)}')
     print(f'f1-score  = {np.round(f1_score(y_test, y_pred), 3)}')
     print(f'roc auc   = {np.round(roc_auc_score(y_test, y_pred), 3)}')
+    return f'accuracy  = {np.round(accuracy_score(y_test, y_pred), 3)}' + '\n' + \
+           f'precision = {np.round(precision_score(y_test, y_pred), 3)}' + '\n' + \
+           f'recall    = {np.round(recall_score(y_test, y_pred), 3)}' + '\n' + \
+           f'f1-score  = {np.round(f1_score(y_test, y_pred), 3)}' + '\n' + \
+           f'roc auc   = {np.round(roc_auc_score(y_test, y_pred), 3)}'
 
 # Instantiate oversampler 
 rs = RandomOverSampler()
@@ -183,4 +188,8 @@ sns.set(font_scale=1.4) # for label size
 sns.heatmap(df_cm, annot=True, annot_kws={"size": 16}) # font size
 # plt.show()
 plt.tight_layout()
-plt.savefig("confmatrix.png",dpi=120) 
+plt.savefig("confmatrix.png",dpi=120)
+
+# Write model metrics to file
+with open('metrics.txt', 'w') as output:
+    output.write(classification_eval(y_test, y_pred))
