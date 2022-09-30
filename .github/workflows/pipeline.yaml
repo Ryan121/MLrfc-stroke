@@ -7,7 +7,7 @@ on:
 
 
 jobs:
-  Pipeline-one:
+  Pipeline:
     runs-on: ubuntu-latest
 
     steps:
