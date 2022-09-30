@@ -99,8 +99,8 @@ X = df.drop(['id','stroke'], 1)
 features = X.columns
 
 # Define random forest model
-# model = RandomForestClassifier(n_estimators = )
-model = DecisionTreeClassifier(max_depth=1)
+model = RandomForestClassifier(n_estimators = 10)
+# model = DecisionTreeClassifier(max_depth=1)
 model.fit(X, y)
 
 # Get importance
