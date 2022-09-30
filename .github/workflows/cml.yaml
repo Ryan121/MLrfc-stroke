@@ -15,7 +15,7 @@ jobs:
           pip install -r requirements_alternate.txt
           python models.py
           
-          echo "## Model metrics" > report.md
+          echo "## Model ouput metrics" > report.md
           cat output.txt >> report.md
 
           echo "## Data viz" >> report.md
