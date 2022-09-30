@@ -100,7 +100,7 @@ features = X.columns
 
 # Define random forest model
 # model = RandomForestClassifier(n_estimators = )
-model = DecisionTreeClassifier(max_depth=5)
+model = DecisionTreeClassifier(max_depth=1)
 model.fit(X, y)
 
 # Get importance
