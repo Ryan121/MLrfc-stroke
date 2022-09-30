@@ -156,4 +156,4 @@ y_pred = rf.predict(X_test)
 classification_eval(y_test, y_pred)
 
 # Plot confusion matrix
-confusion_matrix(y_test, y_pred)
+confusion_matrix(y_test, y_pred) 
