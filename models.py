@@ -43,7 +43,7 @@ df.head(5)
 
 # Assess BMI column distribution - Create histograms & boxplot on BMI feature
 print('Distribution Plot')
-df['bmi'].hist(figsize=(5,5), bins = 50, color = "c", edgecolor='black')
+# df['bmi'].hist(figsize=(5,5), bins = 50, color = "c", edgecolor='black')
 # plt.show()
 print("-------------------------------------------------------------------------")
 print('Box Plot')
@@ -94,16 +94,17 @@ y = df[['stroke']]
 
 # Define feature array
 X = df.drop(['id','stroke'], 1)
+features = X.columns
 
 # Define random forest model
 model = RandomForestClassifier(n_estimators = 100)
 model.fit(X, y)
 
 # Get importance
-importance = model.feature_importances_
+importances = model.feature_importances_
 
 # Summarize feature importance
-for i,v in enumerate(importance):
+for i,v in enumerate(importances):
 	print('Feature: %0d, Score: %.5f' % (i,v))
  
 # Plot feature importance
@@ -156,4 +157,30 @@ y_pred = rf.predict(X_test)
 classification_eval(y_test, y_pred)
 
 # Plot confusion matrix
-confusion_matrix(y_test, y_pred) 
+cm = confusion_matrix(y_test, y_pred)
+
+##########################################
+##### PLOT FEATURE IMPORTANCE ############
+##########################################
+# Calculate feature importance in random forest
+indices = np.argsort(importances)
+plt.title('Feature Importances')
+plt.barh(range(len(indices)), importances[indices], color='b', align='center')
+plt.yticks(range(len(indices)), [features[i] for i in indices])
+plt.xlabel('Relative Importance')
+# plt.show()
+plt.tight_layout()
+plt.savefig("feature_importance.png",dpi=120) 
+plt.close()
+
+
+##########################################
+############ Plot Confusion Matrix  #############
+##########################################
+df_cm = pd.DataFrame(cm, range(len(cm)), range(len(cm)))
+# plt.figure(figsize=(10,7))
+sns.set(font_scale=1.4) # for label size
+sns.heatmap(df_cm, annot=True, annot_kws={"size": 16}) # font size
+# plt.show()
+plt.tight_layout()
+plt.savefig("confmatrix.png",dpi=120) 
