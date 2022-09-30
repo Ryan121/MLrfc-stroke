@@ -35,5 +35,6 @@ jobs:
       # Step 5
       - name: Model metrics
         run: |
-          echo "Model Metrics"
-          cat metrics.txt
+          echo "Model metrics" > report.md
+          cat output.txt >> report.md
+

@@ -192,5 +192,5 @@ plt.tight_layout()
 plt.savefig("confmatrix.png",dpi=120)
 
 # Write model metrics to file
-with open('metrics.txt', 'w') as output:
+with open('output.txt', 'w') as output:
     output.write(classification_eval(y_test, y_pred))
