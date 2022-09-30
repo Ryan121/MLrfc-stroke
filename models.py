@@ -4,6 +4,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 # Determine feature importance
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
 from matplotlib import pyplot
 from sklearn.preprocessing import StandardScaler
@@ -98,7 +99,8 @@ X = df.drop(['id','stroke'], 1)
 features = X.columns
 
 # Define random forest model
-model = RandomForestClassifier(n_estimators = 1)
+# model = RandomForestClassifier(n_estimators = )
+model = DecisionTreeClassifier(max_depth=5)
 model.fit(X, y)
 
 # Get importance
